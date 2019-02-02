@@ -22,7 +22,7 @@ public class FragmentController {
         this.act = act;
     }
 
-    public void changeFragment(byte newFragId, byte oldFragId) {
+    public void changeFragment(int newFragId, int oldFragId) {
         /*
          * Como funciona: na main activity, as variaveis que controlam qual tela devera ser mostrada sao iniciadas com -1,
          * logo se qualquer uma das duas variaveis forem menores do que zero nada sera feito. Caso nao seja,
@@ -45,14 +45,14 @@ public class FragmentController {
             else
                 ft.setCustomAnimations(R.anim.fragment_slide_right_enter, R.anim.fragment_slide_rigth_exit, R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit);
 
-
+            Log.d(TAG, "changeFragment: oldId: " + oldFragId + " | NewID: "+newFragId);
             Fragment f = getNewFragment(newFragId);
             if (f == null) {
                 Log.d(TAG, "changeFragment: ERRO: nao foi possivel encontrar o fragmento indicado.");
                 return;
             }
-            ft.replace(R.id.fragmento_conteiner, f);
-            ft.addToBackStack(null);
+            ft.replace(R.id.fragmento_conteiner, f, f.toString());
+            ft.addToBackStack(f.toString());
             ft.commit();
         }
     }
@@ -60,18 +60,22 @@ public class FragmentController {
     public void setHomeFragment() {
         FragmentTransaction ft = this.manager.beginTransaction();
         Fragment f = getNewFragment(0);
-        ft.add(R.id.fragmento_conteiner, f);
+        ft.add(R.id.fragmento_conteiner, f, FragmentGames.TAG);
         ft.commit();
     }
 
     private Fragment getNewFragment(int id) {
+        Fragment f = null;
         switch (id) {
             case 0:
-                return new FragmentGames();
+                f = this.manager.findFragmentByTag(FragmentGames.TAG);
+                return (f == null) ? new FragmentGames() : f;
             case 1:
-                return new FragmentFutebol();
+                f = this.manager.findFragmentByTag(FragmentFutebol.TAG);
+                return (f == null) ? new FragmentFutebol() : f;
             case 2:
-                return new FragmentCarros();
+                f = this.manager.findFragmentByTag(FragmentCarros.TAG);
+                return (f == null) ? new FragmentCarros() : f;
             default:
                 return null;
         }
