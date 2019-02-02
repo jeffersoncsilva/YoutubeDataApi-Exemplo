@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Animacoes Fragments</string>
+
+    <!-- Strings referentes ao menu inferior -->
+    <string name="footbal">Futbol</string>
+    <string name="car">Carros</string>
+    <string name="games">Games</string>
+    <string name="tx_carros_title">Carros</string>
+    <string name="tx_games_title">Games</string>
+    <string name="tx_futebol_title">Futebol</string>
+
+</resources>

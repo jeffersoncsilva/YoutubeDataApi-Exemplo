@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.TabLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:minHeight="?attr/actionBarSize"
+    android:id="@+id/bottom_menu"
+    android:layout_alignParentBottom="true"
+    android:background="@color/colorPrimaryDark"
+    app:tabIconTintMode="src_in"
+    app:tabMode="fixed"
+    app:tabIndicatorColor="@android:color/white"
+    app:tabIndicatorHeight="3dp"
+    app:tabTextColor="@android:color/black"
+    app:tabSelectedTextColor="@color/colorOnPrimary">
+
+
+    <android.support.design.widget.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/ic_console"
+        android:text="@string/games" />
+
+    <android.support.design.widget.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/ic_football"
+        android:text="@string/footbal"/>
+
+    <android.support.design.widget.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/ic_car"
+        android:text="@string/car"/>
+
+
+</android.support.design.widget.TabLayout>
